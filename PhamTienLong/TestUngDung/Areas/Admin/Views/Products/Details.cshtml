@@ -1,0 +1,93 @@
+﻿@model ModelEF.Model.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <i class="fa fa-user"></i>&nbsp;Chi tiết sản phẩm @ViewBag.NameDetailProduct
+}
+
+<div>
+    <h4>Sản phẩm @Model.Name</h4>
+    <hr />
+
+    <table class="table table-hover">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Name)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Loại sản phẩm
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Category.Name)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitCost)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.UnitCost)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Quantity)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+
+            <td>
+                <img class="imgProduct" src="@Model.Image" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Status)
+            </td>
+        </tr>
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

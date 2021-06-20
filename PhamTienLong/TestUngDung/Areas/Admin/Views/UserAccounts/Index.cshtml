@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ModelEF.Model.UserAccount>
+
+@using PagedList.Mvc
+@using PagedList;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <i class="fa fa-user"></i>&nbsp;Danh sách tài khoản
+}
+
+
+@using (Html.BeginForm("Index", "UserAccounts", FormMethod.Post))
+{
+    <div class="col-lg-12 form-group">
+        <div class="col-md-4">
+            <input type="text" value="@ViewBag.SearchString" name="searchString" placeholder="Nhập từ cần tìm: " class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="Tìm kiếm" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+
+            <th>
+                Thao tác
+            </th>
+            <th></th>
+        </tr>
+        @{var id = 0;}
+        @{var i = 1;}
+        @foreach (var item in Model)
+        {
+            {
+                if (item.Status == "Blocked")
+                {
+                    id = item.ID;
+                }
+            }
+            <tr id="row_@id">
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+
+                <td>
+                    @item.Status
+                </td>
+
+                <td>
+                    &nbsp;
+                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                   {
+                    Confirm = "Bạn có muốn xoá " + @item.ID + "?",
+                    OnComplete = "$('#row_" + @item.ID + "').remove()",
+                    HttpMethod = "Delete"
+
+                   })
+                </td>
+            </tr>
+            i++;
+        }
+
+    </table>
+</div>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }))

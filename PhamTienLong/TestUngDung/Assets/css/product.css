@@ -1,0 +1,22 @@
+﻿.imgProduct {
+    width: 80px;
+    height: 80px;
+    object-fit: cover
+}
+.divImage{
+    display: flex;
+}
+.btn-default{
+    margin-left: 20px;
+}
+.trImage{
+    padding-top:150px;
+}
+tr{
+    margin-top: 20px;
+    padding-top: 100px;
+}
+
+.ff{
+   
+}

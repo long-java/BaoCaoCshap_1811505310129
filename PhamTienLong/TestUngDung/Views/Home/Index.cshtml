@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ModelEF.Model.Product>
+@using PagedList.Mvc
+@using PagedList;
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@foreach (var item in Model)
+{
+
+    <div class="col l-2-4 m-4 c-6" style="display: inline-block; ">
+        <a class="home-product-item" href="#">
+            <div class="home-product-item-img" style="background-image: url(@item.Image)">
+            </div>
+            <h4 class="home-product-item-name"> @item.Name </h4>
+            <div class="home-product-item__price">
+                <span class="home-product-item__price-old"></span>
+                <span class="home-product-item__price-current">Giá: @item.UnitCost₫</span>
+            </div>
+            <div class="home-product-item__action">
+                <span class="home-product-item__like home-product-item__like--liked">
+                    <i class="far fa-heart home-product-item-icon-like-empty"></i>
+                    <i class="fas fa-heart home-product-item-icon home-product-item-icon-like-fill"></i>
+                </span>
+                <div class="home-product-item__rating">
+                    <i class="fas fa-star home-product-item__star--gold"></i>
+                    <i class="fas fa-star home-product-item__star--gold"></i>
+                    <i class="fas fa-star home-product-item__star--gold"></i>
+                    <i class="fas fa-star home-product-item__star--gold"></i>
+                    <i class="fas fa-star home-product-item__star--gold"></i>
+                </div>
+                <span class="home-product-item__sold">22 đã bán</span>
+            </div>
+            <div class="home-product-item__origin">
+                <span class="home-product-item__brand">Yohe</span>
+                <span class="home-product-item__origin-name">Thái Lan</span>
+            </div>
+
+            <div class="home-product-item__sale-off">
+                <span class="home-product-item__sale-off-percent">10%</span>
+                <span class="home-product-item__sale-off-label">GIẢM</span>
+            </div>
+        </a>
+    </div>
+}
+
+<center><div class="container"> @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page })) </div></center>

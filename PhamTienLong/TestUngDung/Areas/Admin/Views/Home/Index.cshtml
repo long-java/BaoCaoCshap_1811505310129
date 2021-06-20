@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <i class="fa fa-user"></i>&nbsp;Trang chủ
+}
+
+
+<section class="panel">
+    <header class="panel-heading">
+        Thông báo chung <span class="tools pull-right">
+            <a href="javascript:;" class="fa fa-chevron-down"></a>
+            <a href="javascript:;" class="fa fa-cog"></a>
+            <a href="javascript:;" class="fa fa-times"></a>
+        </span>
+    </header>
+    <div class="panel-body">
+        <div class="alert alert-info clearfix">
+            <span class="alert-icon"><i class="fa fa-envelope-o"></i></span>
+            <div class="notification-info">
+                <ul class="clearfix notification-meta">
+                    <li class="pull-left notification-sender"><span><a href="https://mail.google.com/">Tiến Long</a></span> đã gửi bạn email. </li>
+                    <li class="pull-right notification-time">1 phút trước</li>
+                </ul>
+                <p>
+                    Hãy trả lời.
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-danger">
+            <span class="alert-icon"><i class="fa fa-facebook"></i></span>
+            <div class="notification-info">
+                <ul class="clearfix notification-meta">
+                    <li class="pull-left notification-sender"><span><a href="https://www.facebook.com/pham.long.9849912/">Tiến Long</a></span> đã đề cập đến bạn trong một bài đăng </li>
+                    <li class="pull-right notification-time">7 giờ trước</li>
+                </ul>
+                <p>
+                    Xem ngay
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-success ">
+            <span class="alert-icon"><i class="fa fa-comments-o"></i></span>
+            <div class="notification-info">
+                <ul class="clearfix notification-meta">
+                    <li class="pull-left notification-sender">Bạn có 5 tin nhắn chưa xem</li>
+                    <li class="pull-right notification-time">1 phút trước</li>
+                </ul>
+                <p>
+                    <a href="#">Tiến Long, Lilia c</a> và <a href="#">3 người khác</a>
+                </p>
+            </div>
+        </div>
+        <div class="alert alert-warning ">
+            <span class="alert-icon"><i class="fa fa-bell-o"></i></span>
+            <div class="notification-info">
+                <ul class="clearfix notification-meta">
+                    <li class="pull-left notification-sender">Domain hết hạn vào 7 ngày</li>
+                    <li class="pull-right notification-time">5 ngày trước</li>
+                </ul>
+                <p>
+                    Còn 7 ngày để gia hạn domain
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
